@@ -13,6 +13,7 @@ const page = () => {
             className="rounded-lg items-center shadow-md w-70  h-89"
           />
         </div>
+        
         <div className="space-y-4">
           <h2 className="text-3xl font-bold text-white">About HackHive</h2>
           <p className="text-white-700 leading-loose">

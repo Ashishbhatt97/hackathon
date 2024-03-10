@@ -1,8 +1,10 @@
+
 import React, { useState } from 'react'
 import { Button } from './ui/button';
 import { useRouter } from 'next/navigation';
 const Form = () => {
-
+    const router = useRouter();
+    
     const loginFormat = {
         email: "",
         password: "",
@@ -17,7 +19,6 @@ const Form = () => {
             ...prevData,
             [name]: value,
         }));
-        console.log(login);
     };
 
     const loginSubmitHandler = async (e) => {
@@ -28,7 +29,7 @@ const Form = () => {
 
             if (login.email === "techfest2024@gmail.com" && login.password === "techfest@2024") {
                 localStorage.setItem("adminLogin", true);
-                Router.push('/');
+                router.push('/');
             } else {
                 window.alert("Username and Password are not correct");
             }
