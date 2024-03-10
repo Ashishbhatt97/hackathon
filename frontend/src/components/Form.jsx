@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Button } from './ui/button';
-
+import { useRouter } from 'next/navigation';
 const Form = () => {
 
     const loginFormat = {
@@ -20,17 +20,18 @@ const Form = () => {
         console.log(login);
     };
 
-    const loginSubmitHandler = async () => {
+    const loginSubmitHandler = async (e) => {
         try {
-            const response = await axios.post(
-                ``,
-                login,
-                {}
-            );
-            console.log(response.data);
+            if (login.email === "" && login.password === "") {
+                return window.alert("email password cannot be empty");
+            }
 
-
-
+            if (login.email === "techfest2024@gmail.com" && login.password === "techfest@2024") {
+                localStorage.setItem("adminLogin", true);
+                Router.push('/');
+            } else {
+                window.alert("Username and Password are not correct");
+            }
         } catch (error) {
             console.log(error)
         }
